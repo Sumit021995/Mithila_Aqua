@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mithila Aqua - Pure & Refreshing Packaged Drinking Water</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tealBrand: '#11676a',
+                        tealDark: '#0b4345',
+                        tealLight: '#1f8a8e',
+                        goldAccent: '#d4af37',
+                        orangeAccent: '#e65c00',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .madhubani-border {
+            background-image: repeating-linear-gradient(45deg, #11676a, #11676a 10px, #d4af37 10px, #d4af37 20px);
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(17, 103, 106, 0.95) 0%, rgba(11, 67, 69, 0.98) 100%);
+        }
+        .water-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .water-wave svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-tealBrand selection:text-white">
+
+    <!-- Top Bar -->
+    <div class="bg-tealDark text-slate-200 text-xs py-2 px-4 sm:px-8 border-b border-teal-800">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-4">
+                <span class="flex items-center"><img src="src/fssai_logo.png" alt="FSSAI" class="h-4 w-auto mr-1.5 object-contain"> FSSAI Lic. No: <strong>10426090000083</strong></span>
+                <span class="hidden md:inline text-teal-400">|</span>
+                <span class="hidden md:flex items-center"><i class="fa-solid fa-industry text-goldAccent mr-1.5"></i> Vandana Enterprises, Sitamarhi</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="tel:+918083418793" class="hover:text-goldAccent transition flex items-center"><i class="fa-solid fa-phone text-goldAccent mr-1.5"></i> +91 8083418793</a>
+                <a href="mailto:wecare@mithilaaqua.com" class="hover:text-goldAccent transition flex items-center"><i class="fa-solid fa-envelope text-goldAccent mr-1.5"></i> wecare@mithilaaqua.com</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-3.5 flex justify-between items-center">
+            <!-- Logo & Brand -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-full bg-tealBrand flex items-center justify-center text-white shadow-md group-hover:scale-105 transition">
+                    <img src="src/mithila_aqua_logo.png" alt="Mithila Aqua logo" class="w-8 h-8 object-contain">
+                </div>
+                <div>
+                    <h1 class="text-xl font-extrabold tracking-tight text-tealDark leading-none">MITHILA <span class="text-tealBrand">AQUA</span></h1>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-slate-500">By Vandana Enterprises</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-slate-600">
+                <a href="#hero" class="hover:text-tealBrand transition">Home</a>
+                <a href="#purity" class="hover:text-tealBrand transition">Purity Process</a>
+                <a href="#products" class="hover:text-tealBrand transition">Bottle Sizes</a>
+                <a href="#nutrition" class="hover:text-tealBrand transition">Nutrition</a>
+                <a href="#contact" class="hover:text-tealBrand transition">Contact Us</a>
+            </nav>
+
+            <!-- CTA Order Button -->
+            <div class="hidden sm:flex items-center space-x-3">
+                <a href="#contact" class="bg-tealBrand hover:bg-tealDark text-white font-semibold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5 text-sm flex items-center space-x-2">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Bulk / Retail Inquiry</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-slate-700 hover:text-tealBrand focus:outline-none p-2">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3 shadow-lg">
+            <a href="#hero" class="block text-slate-700 hover:text-tealBrand font-medium py-1 mobile-link">Home</a>
+            <a href="#purity" class="block text-slate-700 hover:text-tealBrand font-medium py-1 mobile-link">Purity Process</a>
+            <a href="#products" class="block text-slate-700 hover:text-tealBrand font-medium py-1 mobile-link">Bottle Sizes</a>
+            <a href="#nutrition" class="block text-slate-700 hover:text-tealBrand font-medium py-1 mobile-link">Nutrition</a>
+            <a href="#contact" class="block text-slate-700 hover:text-tealBrand font-medium py-1 mobile-link">Contact Us</a>
+            <div class="pt-2">
+                <a href="#contact" class="w-full block text-center bg-tealBrand text-white font-semibold py-2.5 rounded-xl shadow">Inquire Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative hero-bg text-white overflow-hidden py-20 lg:py-28">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-goldAccent border border-goldAccent/30 text-xs font-semibold tracking-wide uppercase">
+                    <i class="fa-solid fa-award"></i>
+                    <span>Authentic Mithila Heritage & Purity</span>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+                    Pure, Safe & <span class="text-goldAccent underline decoration-goldAccent/40 decoration-4">Ozonized Mineral</span> Drinking Water
+                </h1>
+                <p class="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                    Bottled with utmost precision by <strong class="text-white font-semibold">Vandana Enterprises</strong> in Sitamarhi, Bihar. Micron filtered, R.O. processed, UV treated, and enriched with balanced essential minerals.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#products" class="w-full sm:w-auto bg-goldAccent hover:bg-amber-500 text-slate-900 font-bold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-0.5 flex items-center justify-center space-x-3 text-base">
+                        <span>Explore Bottles</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold px-8 py-4 rounded-xl transition flex items-center justify-center space-x-3 text-base backdrop-blur-sm">
+                        <i class="fa-solid fa-phone"><span>+91 8083418793</span></i>
+                    </a>
+                </div>
+
+                <!-- Trust Badges Row -->
+                <div class="pt-8 grid grid-cols-3 gap-4 border-t border-white/10 max-w-lg mx-auto lg:mx-0">
+                    <div class="flex flex-col items-center lg:items-start">
+                        <span class="text-goldAccent font-bold text-lg"><i class="fa-solid fa-shield-halved"></i> FSSAI</span>
+                        <span class="text-xs text-slate-300">Certified Quality</span>
+                    </div>
+                    <div class="flex flex-col items-center lg:items-start">
+                        <span class="text-goldAccent font-bold text-lg"><i class="fa-solid fa-flag"></i> 100%</span>
+                        <span class="text-xs text-slate-300">Made In India</span>
+                    </div>
+                    <div class="flex flex-col items-center lg:items-start">
+                        <span class="text-goldAccent font-bold text-lg"><i class="fa-solid fa-recycle"></i> 100%</span>
+                        <span class="text-xs text-slate-300">Recyclable PET</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Bottle / Art Graphic Simulation -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-72 sm:w-80 bg-gradient-to-b from-teal-800 to-tealDark p-6 rounded-3xl shadow-2xl border-4 border-goldAccent/50 text-center transform hover:rotate-1 transition duration-500">
+                    <!-- Madhubani Art Water Drop Motif representation -->
+                    <div class="absolute -top-6 -right-6 w-20 h-20 bg-goldAccent/20 rounded-full blur-xl"></div>
+                    <div class="bg-teal-900/80 rounded-2xl p-6 border border-teal-600 shadow-inner">
+                        <div class="w-16 h-16 mx-auto bg-white/10 rounded-full flex items-center justify-center mb-4 border border-goldAccent/30">
+                            <i class="fa-solid fa-water text-goldAccent text-3xl"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-goldAccent">Packaged Drinking Water</span>
+                        <h3 class="text-3xl font-black text-white tracking-wider my-2">MITHILA <span class="text-goldAccent">AQUA</span></h3>
+                        <p class="text-xs text-slate-300 italic mb-6">"Packaged Drinking Water with Added Minerals"</p>
+                        
+                        <div class="space-y-2 text-left bg-teal-950/60 p-4 rounded-xl text-xs text-slate-200 border border-teal-800">
+                            <div class="flex justify-between font-semibold text-goldAccent border-b border-teal-800/60 pb-1">
+                                <span>Purity Standards</span>
+                                <span>Multi-Stage</span>
+                            </div>
+                            <div class="flex justify-between"><span>Micron Filtered</span> <i class="fa-solid fa-check text-emerald-400"></i></div>
+                            <div class="flex justify-between"><span>R.O. Processed</span> <i class="fa-solid fa-check text-emerald-400"></i></div>
+                            <div class="flex justify-between"><span>UV Treated</span> <i class="fa-solid fa-check text-emerald-400"></i></div>
+                            <div class="flex justify-between"><span>Ozonized</span> <i class="fa-solid fa-check text-emerald-400"></i></div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-teal-800 flex justify-between items-center text-xs text-slate-300">
+                            <span>Lic. No: 10426090000083</span>
+                            <span class="bg-goldAccent text-slate-900 px-2 py-0.5 rounded font-bold">1L / 500ml / 250ml</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Purity Process Section -->
+    <section id="purity" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-tealBrand font-bold text-sm tracking-wider uppercase bg-teal-50 px-3 py-1 rounded-full border border-teal-100">Advanced Technology</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-tealDark mt-3 mb-4">The 4-Step Purity & Safety Process</h2>
+                <p class="text-slate-600 text-base">Every drop of Mithila Aqua undergoes rigorous purification, filtration, and safety checks before reaching your table.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-tealBrand transition group shadow-sm hover:shadow-md">
+                    <div class="w-14 h-14 rounded-xl bg-tealBrand/10 text-tealBrand flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-tealBrand group-hover:text-white transition">
+                        <i class="fa-solid fa-filter"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-tealDark mb-2">1. Micron Filtered</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Multi-stage micron filtration removes suspended impurities, dust particles, and turbidity for crystal-clear water.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-tealBrand transition group shadow-sm hover:shadow-md">
+                    <div class="w-14 h-14 rounded-xl bg-tealBrand/10 text-tealBrand flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-tealBrand group-hover:text-white transition">
+                        <i class="fa-solid fa-atom"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-tealDark mb-2">2. R.O. Processed</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Advanced Reverse Osmosis (R.O.) technology eliminates dissolved salts, heavy metals, and unwanted contaminants.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-tealBrand transition group shadow-sm hover:shadow-md">
+                    <div class="w-14 h-14 rounded-xl bg-tealBrand/10 text-tealBrand flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-tealBrand group-hover:text-white transition">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-tealDark mb-2">3. UV Treated</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Ultraviolet (UV) radiation disinfection neutralizes remaining microorganisms and bacteria instantly and safely.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-tealBrand transition group shadow-sm hover:shadow-md">
+                    <div class="w-14 h-14 rounded-xl bg-tealBrand/10 text-tealBrand flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-tealBrand group-hover:text-white transition">
+                        <i class="fa-solid fa-wind"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-tealDark mb-2">4. Ozonized</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Ozonation locks in absolute freshness, sterilizes the bottled environment, and keeps water crisp and pure for longer.</p>
+                </div>
+            </div>
+
+            <!-- Notice Banner -->
+            <div class="mt-16 bg-gradient-to-r from-tealDark to-tealBrand rounded-2xl p-8 text-white flex flex-col lg:flex-row items-center justify-between gap-6 shadow-xl">
+                <div class="space-y-2 text-center lg:text-left">
+                    <span class="text-goldAccent font-bold text-xs uppercase tracking-widest"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Storage & Handling Instructions</span>
+                    <h4 class="text-xl font-bold">Keep Away From Direct Sunlight</h4>
+                    <p class="text-slate-200 text-sm">Store in a clean, dry, and odourless area. Crush the bottle after use to protect the environment.</p>
+                </div>
+                <div class="flex items-center space-x-4 bg-white/10 px-6 py-4 rounded-xl backdrop-blur-sm border border-white/20">
+                    <i class="fa-solid fa-recycle text-goldAccent text-3xl"></i>
+                    <div>
+                        <span class="block font-bold text-sm">Eco-Friendly PET</span>
+                        <span class="text-xs text-slate-300">100% Recyclable Packaging</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Bottle Sizes Showcase Section -->
+    <section id="products" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-tealBrand font-bold text-sm tracking-wider uppercase bg-white px-3 py-1 rounded-full border border-slate-200 shadow-sm">Product Range</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-tealDark mt-3 mb-4">Available Bottle Sizes</h2>
+                <p class="text-slate-600 text-base">Designed with ergonomic square PET grips and traditional Madhubani art label motifs representing Mithila culture.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 250 ml Bottle -->
+                <div class="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl transition border border-slate-200 flex flex-col justify-between group">
+                    <div>
+                        <div class="h-48 bg-gradient-to-b from-teal-50 to-slate-100 rounded-2xl flex items-center justify-center mb-6 relative border border-slate-200 group-hover:border-tealBrand transition">
+                            <div class="absolute top-3 right-3 bg-tealBrand text-white text-xs font-bold px-3 py-1 rounded-full shadow">Compact</div>
+                            <!-- Bottle Illustration icon -->
+                            <div class="text-center">
+                                <i class="fa-solid fa-bottle-water text-tealBrand text-6xl mb-2 group-hover:scale-110 transition"></i>
+                                <span class="block text-xs font-bold text-slate-500 uppercase tracking-widest">Square PET</span>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-black text-tealDark mb-1">250 ml</h3>
+                        <p class="text-xs text-slate-500 font-semibold mb-3">Sticker Label: 70 x 20 mm</p>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">Perfect for meetings, events, quick hydration on-the-go, and travel convenience.</p>
+                    </div>
+                    <a href="#contact" class="w-full bg-slate-100 hover:bg-tealBrand hover:text-white text-tealDark font-semibold py-3 rounded-xl transition text-center text-sm flex items-center justify-center space-x-2">
+                        <span>Enquire 250ml</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- 500 ml Bottle -->
+                <div class="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition border-2 border-tealBrand flex flex-col justify-between group relative transform md:-translate-y-2">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-goldAccent text-slate-900 font-bold text-xs uppercase px-4 py-1 rounded-full shadow">
+                        Most Popular
+                    </div>
+                    <div>
+                        <div class="h-48 bg-gradient-to-b from-teal-50 to-slate-100 rounded-2xl flex items-center justify-center mb-6 relative border border-teal-200 group-hover:border-tealBrand transition">
+                            <div class="absolute top-3 right-3 bg-goldAccent text-slate-900 text-xs font-bold px-3 py-1 rounded-full shadow">Best Seller</div>
+                            <div class="text-center">
+                                <i class="fa-solid fa-bottle-water text-tealBrand text-7xl mb-2 group-hover:scale-110 transition"></i>
+                                <span class="block text-xs font-bold text-slate-500 uppercase tracking-widest">Square PET</span>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-black text-tealDark mb-1">500 ml</h3>
+                        <p class="text-xs text-slate-500 font-semibold mb-3">Sticker Label: 115 x 25 mm</p>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">Ideal daily companion for backpacks, students, offices, and outdoor commutes.</p>
+                    </div>
+                    <a href="#contact" class="w-full bg-tealBrand hover:bg-tealDark text-white font-semibold py-3 rounded-xl transition text-center text-sm flex items-center justify-center space-x-2 shadow-md">
+                        <span>Enquire 500ml</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- 1 Litre Bottle -->
+                <div class="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl transition border border-slate-200 flex flex-col justify-between group">
+                    <div>
+                        <div class="h-48 bg-gradient-to-b from-teal-50 to-slate-100 rounded-2xl flex items-center justify-center mb-6 relative border border-slate-200 group-hover:border-tealBrand transition">
+                            <div class="absolute top-3 right-3 bg-tealBrand text-white text-xs font-bold px-3 py-1 rounded-full shadow">Family Size</div>
+                            <div class="text-center">
+                                <i class="fa-solid fa-bottle-water text-tealBrand text-8xl mb-2 group-hover:scale-110 transition"></i>
+                                <span class="block text-xs font-bold text-slate-500 uppercase tracking-widest">Square PET</span>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-black text-tealDark mb-1">1000 ml (1L)</h3>
+                        <p class="text-xs text-slate-500 font-semibold mb-3">Sticker Label: 150 x 32 mm</p>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">Standard family and dining table size ensuring full-day hydration and purity.</p>
+                    </div>
+                    <a href="#contact" class="w-full bg-slate-100 hover:bg-tealBrand hover:text-white text-tealDark font-semibold py-3 rounded-xl transition text-center text-sm flex items-center justify-center space-x-2">
+                        <span>Enquire 1L</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nutritional Information Section -->
+    <section id="nutrition" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-tealBrand font-bold text-sm tracking-wider uppercase bg-teal-50 px-3 py-1 rounded-full border border-teal-100">Health & Minerals</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-tealDark">Balanced Nutritional Profile</h2>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Mithila Aqua is not just pure water; it is carefully formulated with essential minerals to support optimum body hydration, electrolytic balance, and refreshment.
+                    </p>
+                    
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-tealBrand text-white flex items-center justify-center flex-shrink-0 font-bold">Ca</div>
+                            <div>
+                                <h4 class="font-bold text-tealDark text-base">Calcium (1.0 mg / 100 ml)</h4>
+                                <p class="text-slate-500 text-xs">Supports bone strength, muscle contraction, and overall cellular vitality.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-tealBrand text-white flex items-center justify-center flex-shrink-0 font-bold">Na</div>
+                            <div>
+                                <h4 class="font-bold text-tealDark text-base">Sodium (1.0 mg / 100 ml)</h4>
+                                <p class="text-slate-500 text-xs">Maintains optimal fluid balance and nerve transmission.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-tealBrand text-white flex items-center justify-center flex-shrink-0 font-bold">Mg</div>
+                            <div>
+                                <h4 class="font-bold text-tealDark text-base">Magnesium (0.5 mg / 100 ml)</h4>
+                                <p class="text-slate-500 text-xs">Essential for energy metabolism and cardiovascular wellness.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nutrition Table Card -->
+                <div class="lg:col-span-6">
+                    <div class="bg-tealDark text-white p-8 sm:p-10 rounded-3xl shadow-2xl border-4 border-goldAccent/40 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-goldAccent/10 rounded-full blur-2xl"></div>
+                        
+                        <div class="flex justify-between items-center border-b border-teal-800 pb-6 mb-6">
+                            <div>
+                                <h3 class="text-2xl font-black text-white">Nutritional Information</h3>
+                                <p class="text-xs text-goldAccent uppercase tracking-widest font-semibold mt-1">Approximate Values (per 100 ml)</p>
+                            </div>
+                            <div class="bg-white/10 px-3 py-1.5 rounded-lg border border-white/20 text-xs font-bold text-goldAccent">
+                                FSSAI Approved
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 text-sm">
+                            <div class="flex justify-between items-center py-2.5 border-b border-teal-800/80">
+                                <span class="text-slate-300 font-medium">Calcium</span>
+                                <span class="font-bold text-white text-base">1.0 mg</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2.5 border-b border-teal-800/80">
+                                <span class="text-slate-300 font-medium">Sodium</span>
+                                <span class="font-bold text-white text-base">1.0 mg</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2.5 border-b border-teal-800/80">
+                                <span class="text-slate-300 font-medium">Magnesium</span>
+                                <span class="font-bold text-white text-base">0.5 mg</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2.5">
+                                <span class="text-slate-300 font-medium">Total Dissolved Solids (TDS)</span>
+                                <span class="font-bold text-goldAccent text-base">Balanced & Safe</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-teal-800 flex flex-col sm:flex-row justify-between text-xs text-slate-300 gap-2">
+                            <span>Lic. No: 10426090000083</span>
+                            <span class="text-goldAccent font-semibold">Made in India</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Feedback Section -->
+    <section id="contact" class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-tealBrand font-bold text-sm tracking-wider uppercase bg-white px-3 py-1 rounded-full border border-slate-200 shadow-sm">Get In Touch</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-tealDark mt-3 mb-4">Contact & Bulk Inquiries</h2>
+                <p class="text-slate-600 text-base">Have questions, feedback, or want to place retail and wholesale water bottle orders? Reach out to us today.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Info Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                        <h3 class="text-xl font-bold text-tealDark">Vandana Enterprises</h3>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-tealBrand/10 text-tealBrand flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">Plant & Office Address</h4>
+                                <p class="text-slate-600 text-xs leading-relaxed mt-0.5">Kailashpuri, Dumra, Sitamarhi, Bihar - 843301</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-tealBrand/10 text-tealBrand flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">Customer Care Executive</h4>
+                                <a href="tel:+918083418793" class="text-tealBrand font-bold text-xs mt-0.5 hover:underline block">+91 8083418793</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-tealBrand/10 text-tealBrand flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">Email Address</h4>
+                                <a href="mailto:wecare@mithilaaqua.com" class="text-tealBrand font-bold text-xs mt-0.5 hover:underline block">wecare@mithilaaqua.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-tealBrand/10 text-tealBrand flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">FSSAI License</h4>
+                                <p class="text-slate-600 text-xs mt-0.5 font-mono">10426090000083</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inquiry Form Column -->
+                <div class="lg:col-span-7">
+                    <form id="inquiry-form" action="https://formspree.io/f/xjyyqwvy" method="POST" class="bg-white p-8 sm:p-10 rounded-3xl shadow-sm border border-slate-200 space-y-6" onsubmit="handleFormSubmit(event)">
+                        <h3 class="text-xl font-bold text-tealDark">Send an Inquiry or Feedback</h3>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Your Name *</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-tealBrand focus:ring-2 focus:ring-tealBrand/20 outline-none transition text-sm" placeholder="Enter your full name">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-tealBrand focus:ring-2 focus:ring-tealBrand/20 outline-none transition text-sm" placeholder="+91 XXXXX XXXXX">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-tealBrand focus:ring-2 focus:ring-tealBrand/20 outline-none transition text-sm" placeholder="your@email.com">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Requirement Type</label>
+                                <select id="req-type" name="requirement" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-tealBrand focus:ring-2 focus:ring-tealBrand/20 outline-none transition text-sm bg-white">
+                                    <option>Retail Order Inquiry</option>
+                                    <option>Bulk / Wholesale Supply</option>
+                                    <option>Distributor / Dealership</option>
+                                    <option>Feedback & Complaints</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Message / Details *</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-tealBrand focus:ring-2 focus:ring-tealBrand/20 outline-none transition text-sm" placeholder="Please specify bottle sizes (250ml, 500ml, 1L) and quantity required..."></textarea>
+                        </div>
+
+                        <p id="form-status" class="hidden text-center text-sm" role="status" aria-live="polite"></p>
+                        <button type="submit" class="w-full bg-tealBrand hover:bg-tealDark text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition flex items-center justify-center space-x-2 text-base">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Send Inquiry</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-tealDark text-slate-300 py-12 border-t border-teal-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 items-center border-b border-teal-800/80 pb-8 mb-8">
+            <div>
+                <h3 class="text-xl font-black text-white tracking-wider">MITHILA <span class="text-goldAccent">AQUA</span></h3>
+                <p class="text-xs text-slate-400 mt-1">Packaged Drinking Water by Vandana Enterprises.</p>
+            </div>
+            <div class="text-center text-xs text-slate-300 space-y-1">
+                <p><i class="fa-solid fa-location-dot text-goldAccent mr-1"></i> Kailashpuri, Dumra, Sitamarhi, Bihar - 843301</p>
+                <p><img src="src/fssai_logo.png" alt="FSSAI" class="inline-block h-4 w-auto object-contain align-middle mr-1"> FSSAI Lic. No. 10426090000083</p>
+            </div>
+            <div class="flex justify-md-end justify-center space-x-4">
+                <a href="tel:+918083418793" class="w-10 h-10 bg-teal-900 rounded-full flex items-center justify-center text-goldAccent hover:bg-goldAccent hover:text-tealDark transition"><i class="fa-solid fa-phone"></i></a>
+                <a href="mailto:wecare@mithilaaqua.com" class="w-10 h-10 bg-teal-900 rounded-full flex items-center justify-center text-goldAccent hover:bg-goldAccent hover:text-tealDark transition"><i class="fa-solid fa-envelope"></i></a>
+                <a href="#hero" class="w-10 h-10 bg-teal-900 rounded-full flex items-center justify-center text-goldAccent hover:bg-goldAccent hover:text-tealDark transition"><i class="fa-solid fa-arrow-up"></i></a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 text-center text-xs text-slate-400">
+            <p>&copy; 2026 Mithila Aqua (Vandana Enterprises). All rights reserved. Made in India. Store in a clean, dry, and odourless area. Crush the bottle after use.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu & Inquiry Form -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = event.currentTarget;
+            const status = document.getElementById('form-status');
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            status.classList.add('hidden');
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { Accept: 'application/json' }
+                });
+                const result = await response.json();
+
+                if (!response.ok) {
+                    const errors = Array.isArray(result.errors)
+                        ? result.errors.map(error => error.message).join(' ')
+                        : '';
+                    throw new Error(errors || `Form submission failed (HTTP ${response.status}).`);
+                }
+
+                form.reset();
+                status.textContent = 'Your enquiry has been sent successfully.';
+                status.classList.remove('hidden', 'text-red-600');
+                status.classList.add('text-green-700');
+            } catch (error) {
+                console.error('Inquiry form submission failed:', error);
+                status.textContent = error instanceof Error && error.message
+                    ? `We could not send your enquiry: ${error.message}`
+                    : 'We could not send your enquiry. Please check your connection and try again.';
+                status.classList.remove('hidden', 'text-green-700');
+                status.classList.add('text-red-600');
+            } finally {
+                submitButton.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
